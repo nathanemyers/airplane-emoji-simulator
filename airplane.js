@@ -1,0 +1,3 @@
+let airplane = {}
+
+export airplane
