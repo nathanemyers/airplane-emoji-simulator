@@ -1,6 +1,6 @@
 let airplane = {}
 
-const PLANE_STATUS = {
+export const PLANE_STATUS = {
   flight: "In Flight",
   taxi: "Taxing",
   takeoff: "Taking Off",
@@ -9,13 +9,21 @@ const PLANE_STATUS = {
 }
 
 export default class Airplane {
-  constructor(fuel_tank) {
-    this.fuel_capacity = fuel_tank
-    this.current_fuel = fuel_tank
+  constructor(fuel) {
+    this.fuel_capacity = fuel
+    this.fuel = fuel
     this.status = PLANE_STATUS.taxi
   }
 
+  get fuel() {
+    return this.fuel
+  }
+
+  get status() {
+    return this.status
+  }
+
   tick() {
-    this.current_fuel = this.current_fuel - 1
+    this.fuel = this.fuel - 1
   }
 }
