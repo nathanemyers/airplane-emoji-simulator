@@ -4,7 +4,7 @@
   "description": "Airport Simulator, but with ✈️",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --compilers js:babel-core/register",
     "simulation": "node simulate.js"
   },
   "repository": {
