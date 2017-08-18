@@ -1,3 +1,3 @@
 let airplane = {}
 
-export airplane
+export default airplane
