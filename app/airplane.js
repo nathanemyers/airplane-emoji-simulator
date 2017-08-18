@@ -8,15 +8,15 @@ export const PLANE_STATUS = {
   crash:  "Crashed",
 }
 
-export default class Airplane {
-  constructor(fuel) {
-    this.fuel_capacity = fuel
-    this.fuel = fuel
-    this.status = PLANE_STATUS.taxi
+export class Airplane {
+  constructor(fuel=100) {
+    this._fuel_capacity = fuel
+    this._fuel = fuel
+    this._status = PLANE_STATUS.taxi
   }
 
   get fuel() {
-    return this.fuel
+    return this._fuel
   }
 
   get status() {
@@ -24,6 +24,6 @@ export default class Airplane {
   }
 
   tick() {
-    this.fuel = this.fuel - 1
+    this._fuel = this._fuel - 1
   }
 }
