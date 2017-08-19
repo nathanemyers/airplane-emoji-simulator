@@ -41,6 +41,20 @@ describe('Airplanes', function() {
     assert.equal(plane.fuel, 10);
   });
 
+  it('travels distance while in flight', function() {
+    let plane = new Airplane(10, 20, PLANE_STATUS.FLIGHT)
+    plane.tick()
+    assert.equal(plane.eta, 19);
+  });
+
+  it('does not go negative distance', function() {
+    let plane = new Airplane(10, 1, PLANE_STATUS.FLIGHT)
+    plane.tick()
+    assert.equal(plane.eta, 0);
+    plane.tick()
+    assert.equal(plane.eta, 0);
+  });
+
   it('can takeoff', function() {
     let plane = new Airplane(10)
     assert.equal(plane.status, PLANE_STATUS.TAXI);

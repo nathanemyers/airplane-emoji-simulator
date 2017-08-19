@@ -24,6 +24,10 @@ export class Airplane {
     return this._status
   }
 
+  get eta() {
+    return this._destination
+  }
+
   takeoff() {
     if (this._status = PLANE_STATUS.TAXI) {
       this._status = PLANE_STATUS.TAKEOFF
@@ -34,6 +38,11 @@ export class Airplane {
     switch (this._status) {
       case PLANE_STATUS.FLIGHT:
         this._fuel = this._fuel - 1
+
+        if (this._destination > 0) {
+          this._destination = this._destination - 1
+        }
+
         if (this._fuel === 0) {
           this._status = PLANE_STATUS.CRASH
         }
