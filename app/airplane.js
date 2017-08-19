@@ -9,9 +9,10 @@ export const PLANE_STATUS = {
 }
 
 export class Airplane {
-  constructor(fuel=100, status=PLANE_STATUS.TAXI) {
+  constructor(fuel=100, destination=50, status=PLANE_STATUS.TAXI) {
     this._fuel_capacity = fuel
     this._fuel = fuel
+    this._destination = destination
     this._status = status
   }
 
