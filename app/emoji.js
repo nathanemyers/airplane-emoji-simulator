@@ -3,7 +3,7 @@ export const EMOJI = {
   LANDING: "🛬",
   RUNWAY: "🛣",
   PLANE: "✈️",
-  FANCY_PLANE: "🛩"
+  FANCY_PLANE: "🛩",
   CRASH: "💥",
   FIRE: "🔥",
   ONE_HUNDRED: "💯",
