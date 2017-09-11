@@ -14,23 +14,29 @@ export class Airplane {
     this._fuel = fuel
     this._destination = destination
     this._status = status
+    this._name = "Stub"
   }
 
   get fuel() {
     return this._fuel
   }
-
   get status() {
     return this._status
   }
-
   get eta() {
     return this._destination
   }
+  get name() {
+    return this._name
+  }
+  get takeoff_runway() {
+    return this._takeoff_runway
+  }
 
-  takeoff() {
+  takeoff(runway) {
     if (this._status = PLANE_STATUS.TAXI) {
       this._status = PLANE_STATUS.TAKEOFF
+      this._takeoff_runway = runway
     }
   }
 
@@ -51,6 +57,7 @@ export class Airplane {
         break
       case PLANE_STATUS.TAKEOFF:
         this._status = PLANE_STATUS.FLIGHT
+        this._takeoff_runway.busy = false
         break
       case PLANE_STATUS.LANDING:
         this._status = PLANE_STATUS.TAXI

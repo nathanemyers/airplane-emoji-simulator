@@ -1,4 +1,4 @@
-import Runway from './runway'
+import { Runway } from './runway'
 
 export default class Airport {
   constructor(name="Airport") {
