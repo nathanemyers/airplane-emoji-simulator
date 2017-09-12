@@ -14,7 +14,7 @@ Simulate a basic ✈️ airport
 `yarn start`
 
 ## Testing this baby 🛬
-`npm test`
+`yarn test`
 
 ## Shoutouts
  - https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel
