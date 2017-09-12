@@ -12,3 +12,6 @@ Simulate a basic ✈️ airport
 
 ## Testing this baby 🛬
 `npm test`
+
+## Shoutouts
+ - https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel
