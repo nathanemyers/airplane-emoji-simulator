@@ -5,6 +5,9 @@
 Simulate a basic ✈️ airport
 
 ## Installation
+```
+If you need to install yarn: https://yarnpkg.com/lang/en/docs/install/
+```
 `yarn install`
 
 ## Running this bad boy 🛫
