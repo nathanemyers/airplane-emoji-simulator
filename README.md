@@ -6,7 +6,7 @@ Simulate a basic ✈️ airport
 
 ## Installation
 ```
-If you need to install yarn: https://yarnpkg.com/lang/en/docs/install/
+💁‍♂️ If you need to install yarn: [Installing Yarn](https://yarnpkg.com/lang/en/docs/install/)
 ```
 `yarn install`
 
