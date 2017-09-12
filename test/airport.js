@@ -1,5 +1,5 @@
 import { should, assert } from 'chai'
-import Airport from "../app/airport.js"
+import Airport from "../app/engine/airport.js"
 
 describe('Airports', function() {
   it('can add runways', function() {

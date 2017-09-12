@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "mocha"
+    "test": "mocha --compilers js:babel-core/register"
   },
   "dependencies": {
     "chai": "^4.1.2",

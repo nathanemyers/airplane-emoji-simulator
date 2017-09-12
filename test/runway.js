@@ -1,5 +1,5 @@
 var assert = require('assert');
-import { Runway, RUNWAY_STATUS } from "../app/runway.js"
+import { Runway, RUNWAY_STATUS } from "../app/engine/runway.js"
 
 describe('Runways', function() {
   it('start empty', function() {

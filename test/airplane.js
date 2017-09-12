@@ -1,5 +1,5 @@
 var assert = require('assert');
-import { Airplane, PLANE_STATUS } from "../app/airplane.js"
+import { Airplane, PLANE_STATUS } from "../app/engine/airplane.js"
 
 describe('Airplanes', function() {
   it('should burn fuel', function() {
