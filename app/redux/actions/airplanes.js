@@ -1,8 +1,7 @@
-export const ADD_AIRPLANE = 'ADD_AIRPLANE';
-function addAirplane(params) {
+export const CREATE_AIRPLANE = 'CREATE_AIRPLANE';
+export function createAirplane(params) {
   return {
-    type: ADD_AIRPLANE,
+    type: CREATE_AIRPLANE,
     params,
   };
 }
-
