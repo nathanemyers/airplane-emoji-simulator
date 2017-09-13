@@ -4,7 +4,16 @@
 
 Simulate a basic ✈️ airport
 
-## Installation
+## Stack 🥞
+ - [React](https://facebook.github.io/react/)
+ - [Redux](http://redux.js.org/)
+ - [Lodash](https://lodash.com/)
+ - [Yarn](https://yarnpkg.com/en/)
+ - [Webpack](https://webpack.github.io/)
+
+# Usage
+
+## Installation ✨
 ```
 💁‍♂️ If you need to install yarn: https://yarnpkg.com/lang/en/docs/install/
 ```
@@ -16,5 +25,5 @@ Simulate a basic ✈️ airport
 ## Testing this baby 🛬
 `yarn test`
 
-## Shoutouts 🙌
+# Shoutouts 🙌
  - https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel
