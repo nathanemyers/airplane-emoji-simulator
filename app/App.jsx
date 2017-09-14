@@ -17,8 +17,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
 
-    props.fetchNotifications()
-    this.timerId = setInterval( () => props.fetchNotifications(), 30 * 1000)
+    this.timerId = setInterval( () => ( null ), 30 * 1000)
   }
 
   componentWillUnmount() {
