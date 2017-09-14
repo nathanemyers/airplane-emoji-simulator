@@ -7,7 +7,7 @@
   "author": "Nathan Myers <nathanemyers@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server -d",
     "test": "mocha --compilers js:babel-core/register"
   },
   "dependencies": {
