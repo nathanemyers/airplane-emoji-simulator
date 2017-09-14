@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import store from './stores/configure-store.js'
 
 import { createAirplane } from './redux/actions/airplanes'
 
@@ -8,6 +8,7 @@ import { getAirplanes } from './redux/selectors/airplanes'
 
 const mainLoop = () => {
   console.info('Loop Start')
+  store.dispatch(createAirplane({}))
 }
 
 @connect(
