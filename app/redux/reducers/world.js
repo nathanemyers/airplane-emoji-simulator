@@ -1,14 +1,14 @@
-import { ADVANCE_TIME } from 'redux/actions/world'
+import { ADVANCE_TURN } from '../actions/world'
 
 const initialWorldState = {
   turn: 0,
 }
 
-export default const world = (state = initialWorldState, action) => {
+export default (state = initialWorldState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
-    case ADVANCE_TIME:
-      debugger
+    case ADVANCE_TURN:
+      newState.turn = state.turn + 1
       return newState;
 
     default:

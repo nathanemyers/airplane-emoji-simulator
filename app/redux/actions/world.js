@@ -1,7 +1,7 @@
-export const ADVANCE_TIME = 'ADVANCE_TIME';
-export function advanceTime() {
+export const ADVANCE_TURN = 'ADVANCE_TURN';
+export function advanceTurn() {
   return {
-    type: ADVANCE_TIME,
+    type: ADVANCE_TURN,
   };
 }
 

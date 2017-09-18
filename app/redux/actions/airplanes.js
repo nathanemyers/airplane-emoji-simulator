@@ -1,9 +1,13 @@
-export const CREATE_AIRPLANE = 'CREATE_AIRPLANE';
+import cuid from 'cuid'
+import { getTurn } from '../selectors/world'
+import store from '../../stores/store'
+
+export const ADD_AIRPLANE = "ADD_AIRPLANE"
 export function createAirplane(airplane) {
-  const id = ''
-  const turn_created = 0
+  const id = cuid() 
+  const turn_created = getTurn(store.getState()) 
   return {
-    type: CREATE_AIRPLANE,
+    type: ADD_AIRPLANE,
     airplane: {
       ...airplane,
       id,
