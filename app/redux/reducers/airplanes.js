@@ -2,11 +2,11 @@ const initialAirplanesState = {
   airplanes: [],
 }
 
-export const airplaneReducer = (state = initialAirplanesState, action) => {
+export default (state = initialAirplanesState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case "ADD_AIRPLANE":
-      newState.airplanes = state.airplanes.concat(action.params.newPlane)
+      newState.airplanes = state.airplanes.concat(action.airplane)
       return newState;
     default:
       return state;

@@ -1,31 +1,21 @@
 import React from 'react';
 
-import { createStore } from 'redux'
-import { airplaneReducer } from './redux/reducers/airplanes'
-
-let store = createStore(airplaneReducer)
-
-store.subscribe(() => {
-  console.log(store.getState())
-})
+import { createAirplane } from './redux/actions/airplanes'
+import { advanceTime } from './redux/actions/world'
+import store from './stores/store'
 
 function mainLoop() {
 
-  store.dispatch({
-    type: 'ADD_AIRPLANE', 
-    params: {
-      newPlane: {
-        name: 'jerry'
-      }
-    }
-  })
+  store.dispatch(createAirplane({
+    name: 'tom'
+  }))
 
+  store.dispatch(advanceTime())
 }
 
 mainLoop()
 
 window.setInterval(mainLoop, 5 * 1000)
-
 
 
 /////////////////////////////////
