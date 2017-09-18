@@ -1,36 +1,54 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import store from './stores/store'
 
-import { createAirplane } from './redux/actions/airplanes'
+import { createStore } from 'redux'
 
-import { getAirplanes } from './redux/selectors/airplanes'
+const initialAirplanesState = {
+  airplanes: [],
+}
 
-@connect(
-  ( state, ownProps ) => ({
-    airplanes: getAirplanes(state),
-  }),
-  ( dispatch, ownProps ) => ({
-    createAirplane: (airplane) => dispatch(createAirplane(airplane)),
-  })
-)
+const airplaneReducer = (state = initialAirplanesState, action) => {
+  let newState = Object.assign({}, state);
+  switch (action.type) {
+    case 'ADD_AIRPLANE':
+      newState.airplanes = state.airplanes.concat(action.params.newPlane)
+      return newState;
+    default:
+      return state;
+  }
+};
+
+let store = createStore(airplaneReducer)
+
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
+store.dispatch({
+  type: 'ADD_AIRPLANE', 
+  params: {
+    newPlane: {
+      name: 'tom'
+    }
+  }
+})
+
+store.dispatch({
+  type: 'ADD_AIRPLANE', 
+  params: {
+    newPlane: {
+      name: 'jerry'
+    }
+  }
+})
+
+
+
+/////////////////////////////////
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-
-    this.airplanes = props.airplanes
-    this.createAirplane = props.createAirplane
-
-    this.timerId = setInterval( this.mainLoop.bind(this), 1 * 1000)
-  }
-
-  mainLoop() {
-    this.createAirplane({})
-    console.info(this.airplanes)
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerId)
   }
 
   render() {
