@@ -1,3 +1,5 @@
+import { ADD_AIRPLANE } from './airplanes'
+
 const initialAirplanesState = {
   airplanes: [],
 }
@@ -5,7 +7,7 @@ const initialAirplanesState = {
 export default (state = initialAirplanesState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
-    case "ADD_AIRPLANE":
+    case ADD_AIRPLANE:
       newState.airplanes = state.airplanes.concat(action.airplane)
       return newState;
     default:

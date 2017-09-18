@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createAirplane } from './redux/actions/airplanes'
-import { advanceTime } from './redux/actions/world'
+import { advanceTurn } from './redux/actions/world'
 import store from './stores/store'
 
 function mainLoop() {
@@ -10,7 +10,7 @@ function mainLoop() {
     name: 'tom'
   }))
 
-  store.dispatch(advanceTime())
+  store.dispatch(advanceTurn())
 }
 
 mainLoop()
