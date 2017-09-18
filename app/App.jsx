@@ -1,21 +1,7 @@
 import React from 'react';
 
 import { createStore } from 'redux'
-
-const initialAirplanesState = {
-  airplanes: [],
-}
-
-const airplaneReducer = (state = initialAirplanesState, action) => {
-  let newState = Object.assign({}, state);
-  switch (action.type) {
-    case 'ADD_AIRPLANE':
-      newState.airplanes = state.airplanes.concat(action.params.newPlane)
-      return newState;
-    default:
-      return state;
-  }
-};
+import { airplaneReducer } from './redux/reducers/airplanes'
 
 let store = createStore(airplaneReducer)
 
@@ -45,16 +31,16 @@ window.setInterval(mainLoop, 5 * 1000)
 /////////////////////////////////
 
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+//export default class App extends React.Component {
+  //constructor(props) {
+    //super(props)
+  //}
 
-  render() {
-    return (
-      <div style={{textAlign: 'center'}}>
-        <h1>✈️</h1>
-      </div>
-    );
-  }
-}
+  //render() {
+    //return (
+      //<div style={{textAlign: 'center'}}>
+        //<h1>✈️</h1>
+      //</div>
+    //);
+  //}
+//}

@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+//import { combineReducers } from 'redux';
 
-import airplanes from './airplanes';
+//import airplanes from './airplanes';
 
-export default combineReducers({
-  airplanes,
-});
+//export default combineReducers({
+  //airplanes,
+//});
