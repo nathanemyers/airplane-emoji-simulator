@@ -8,6 +8,7 @@ export default const world = (state = initialWorldState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case ADVANCE_TIME:
+      debugger
       return newState;
 
     default:

@@ -1,15 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import store from './stores/configure-store.js'
+import store from './stores/store'
 
 import { createAirplane } from './redux/actions/airplanes'
 
 import { getAirplanes } from './redux/selectors/airplanes'
-
-const mainLoop = () => {
-  console.info('Loop Start')
-  store.dispatch(createAirplane({}))
-}
 
 @connect(
   ( state, ownProps ) => ({
@@ -23,7 +18,15 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
 
-    this.timerId = setInterval( mainLoop, 1 * 1000)
+    this.airplanes = props.airplanes
+    this.createAirplane = props.createAirplane
+
+    this.timerId = setInterval( this.mainLoop.bind(this), 1 * 1000)
+  }
+
+  mainLoop() {
+    this.createAirplane({})
+    console.info(this.airplanes)
   }
 
   componentWillUnmount() {
