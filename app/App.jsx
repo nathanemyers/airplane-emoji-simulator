@@ -23,23 +23,22 @@ store.subscribe(() => {
   console.log(store.getState())
 })
 
-store.dispatch({
-  type: 'ADD_AIRPLANE', 
-  params: {
-    newPlane: {
-      name: 'tom'
-    }
-  }
-})
+function mainLoop() {
 
-store.dispatch({
-  type: 'ADD_AIRPLANE', 
-  params: {
-    newPlane: {
-      name: 'jerry'
+  store.dispatch({
+    type: 'ADD_AIRPLANE', 
+    params: {
+      newPlane: {
+        name: 'jerry'
+      }
     }
-  }
-})
+  })
+
+}
+
+mainLoop()
+
+window.setInterval(mainLoop, 5 * 1000)
 
 
 
