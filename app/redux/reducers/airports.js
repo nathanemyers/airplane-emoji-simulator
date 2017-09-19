@@ -1,5 +1,11 @@
 import cuid from 'cuid'
-import { LAUNCH_AIRPLANE, LAND_AIRPLANE, ADD_RUNWAY } from './airports'
+import { 
+  LAUNCH_AIRPLANE, 
+  LAND_AIRPLANE, 
+  ADD_RUNWAY, 
+  ADD_AIRPLANE_TO_TAXI,
+} from '../actions/airports'
+import { ADD_AIRPLANE, } from '../actions/airplanes'
 
 const initialAirportState = {
   airports: [
@@ -41,6 +47,14 @@ export default (state = initialAirportState, action) => {
     case ADD_RUNWAY:
       const runway = createRunway()
       newState.runways.push(runway)
+      return newState;
+    case ADD_AIRPLANE_TO_TAXI:
+      newState.taxi_queue.push(action.airplane_id)
+      return newState;
+    // Double Duty Action, appears also in airplanes reducer
+    case ADD_AIRPLANE:
+      const airport = newState.airports[0]
+      airport.taxi_queue.push(action.airplane.id)
       return newState;
     default:
       return state;
