@@ -1,4 +1,5 @@
 import cuid from 'cuid'
+import _ from 'lodash'
 import { 
   LAUNCH_AIRPLANE, 
   LAND_AIRPLANE, 
@@ -7,13 +8,20 @@ import {
 } from '../actions/airports'
 import { ADD_AIRPLANE, } from '../actions/airplanes'
 
+import { getAirport, getRunway } from '../selectors/airports'
+
 const initialAirportState = {
   airports: [
     {
       id: 0,
       name: "primary",
       taxi_queue: [],
-      runways: [],
+      runways: [
+        {
+          id: cuid(),
+          cooldown: 0
+        },
+      ],
     }
   ],
 }
@@ -25,24 +33,28 @@ function createRunway() {
   }
 }
 
+// TODO clean this up
+function findRunway(state, runway_id) {
+  const runways = _.flatten(
+    _.concat(
+      state.airports.map((airport) => {
+        return airport.runways
+      })
+    )
+  )
+  return runways.find((runway) => runway.id === runway_id)
+}
+
 export default (state = initialAirportState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case LAUNCH_AIRPLANE:
-      newState.runways = state.ruways.map((runway) => {
-        if (runway.id === action.runway_id) {
-          runway.cooldown = 4
-        }
-        return runway
-      })
+      let launch_runway = findRunway(newState, action.runway_id)
+      launch_runway.cooldown = 4
       return newState;
     case LAND_AIRPLANE:
-      newState.runways = state.ruways.map((runway) => {
-        if (runway.id === action.runway_id) {
-          runway.cooldown = 2
-        }
-        return runway
-      })
+      let land_runway = findRunway(newState, action.runway_id)
+      land_runway.cooldown = 2
       return newState;
     case ADD_RUNWAY:
       const runway = createRunway()
@@ -51,7 +63,7 @@ export default (state = initialAirportState, action) => {
     case ADD_AIRPLANE_TO_TAXI:
       newState.taxi_queue.push(action.airplane_id)
       return newState;
-    // Double Duty Action, appears also in airplanes reducer
+      // Double Duty Action, appears also in airplanes reducer
     case ADD_AIRPLANE:
       const airport = newState.airports[0]
       airport.taxi_queue.push(action.airplane.id)

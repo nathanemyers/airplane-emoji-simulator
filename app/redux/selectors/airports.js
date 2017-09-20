@@ -10,6 +10,7 @@ export const getRunwaysByAirportId = (state, airport_id) => {
 }
 export const getAllRunways = (state) => {
   const airports = getAirports(state)
+  debugger
   return []
 }
 export const getRunway = (state, runway_id) => {

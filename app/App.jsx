@@ -1,29 +1,8 @@
 import React from 'react';
 
-import { createAirplane } from './redux/actions/airplanes'
-import { advanceTurn } from './redux/actions/world'
-import store from './stores/store'
+import mainLoop, { init } from './engine/loop'
 
-store.dispatch(createAirplane({
-  name: 'tom',
-}))
-store.dispatch(createAirplane({
-  name: 'dick'
-}))
-store.dispatch(createAirplane({
-  name: 'harry'
-}))
-store.dispatch(createAirplane({
-  name: 'mason'
-}))
-store.dispatch(createAirplane({
-  name: 'katy'
-}))
-function mainLoop() {
-
-  store.dispatch(advanceTurn())
-}
-
+init()
 mainLoop()
 
 window.setInterval(mainLoop, 5 * 1000)
