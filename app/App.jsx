@@ -41,7 +41,6 @@ export default class App extends React.Component {
     return (
       <div style={{textAlign: 'center'}}>
         <h1>✈️</h1>
-        {{ rendered_airplanes }}
       </div>
     );
   }

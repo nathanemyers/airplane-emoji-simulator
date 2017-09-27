@@ -1,6 +1,6 @@
 import cuid from 'cuid'
-import { getTurn } from '../selectors/world'
-import store from '../../stores/store'
+import { getTurn } from 'redux/selectors/world'
+import store from 'stores/store'
 
 export const ADD_AIRPLANE = "ADD_AIRPLANE"
 export function createAirplane(airplane) {

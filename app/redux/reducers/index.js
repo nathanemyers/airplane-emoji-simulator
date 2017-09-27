@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import world from './world';
-import airplanes from './airplanes';
-import airports from './airports';
+import world from 'redux/reducers/world';
+import airplanes from 'redux/reducers/airplanes';
+import airports from 'redux/reducers/airports';
 
 export default combineReducers({
   world,

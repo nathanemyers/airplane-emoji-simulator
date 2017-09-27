@@ -5,10 +5,10 @@ import {
   LAND_AIRPLANE, 
   ADD_RUNWAY, 
   ADD_AIRPLANE_TO_TAXI,
-} from '../actions/airports'
-import { ADD_AIRPLANE, } from '../actions/airplanes'
+} from 'redux/actions/airports'
+import { ADD_AIRPLANE, } from 'redux/actions/airplanes'
 
-import { getAirport, getRunway } from '../selectors/airports'
+import { getAirport, getRunway } from 'redux/selectors/airports'
 
 const initialAirportState = {
   airports: [

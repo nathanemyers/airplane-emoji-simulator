@@ -1,4 +1,4 @@
-import { ADVANCE_TURN } from '../actions/world'
+import { ADVANCE_TURN } from 'redux/actions/world'
 
 const initialWorldState = {
   turn: 0,

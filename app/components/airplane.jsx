@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import EMOJI from '../../engine/contants/emoji'
+import EMOJI from 'engine/constants/emoji'
 
 export default class Airplane extends Component {
   //static propTypes = {
@@ -8,10 +8,11 @@ export default class Airplane extends Component {
 
   render() {
     const { airplane } = this.props;
+    const plane_emoji = EMOJI.PLANE
 
     return (
       <div className="airplane">
-        {{ EMOJI.PLANE }}: {{ airplane.name }}
+        { plane_emoji }: { airplane.name }
       </div>
     );
   }

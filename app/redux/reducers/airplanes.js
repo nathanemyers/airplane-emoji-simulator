@@ -1,4 +1,4 @@
-import { ADD_AIRPLANE } from '../actions/airplanes'
+import { ADD_AIRPLANE } from 'redux/actions/airplanes'
 
 const initialAirplanesState = {
   airplanes: [],
