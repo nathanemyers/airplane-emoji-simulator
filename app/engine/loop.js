@@ -24,6 +24,10 @@ export function init() {
   }))
 }
 
+function is_busy(runway) {
+  return runway.cooldown > 0
+}
+
 export default function mainLoop() {
   const state = store.getState()
   const airports = getAirports(state)
@@ -31,7 +35,7 @@ export default function mainLoop() {
     const runways = getRunwaysByAirportId(state, airport.id)
     runways.forEach((runway) => {
 
-      if (airport.taxi_queue.length > 0) {
+      if (airport.taxi_queue.length > 0 && !is_busy(runway)) {
         store.dispatch(launchAirplane(airport.taxi_queue[0], runway.id))
       }
 
