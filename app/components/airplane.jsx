@@ -12,7 +12,13 @@ export default class Airplane extends Component {
 
     return (
       <div className="airplane">
-        { plane_emoji }: { airplane.name }
+        <div className="emoji">
+          { plane_emoji }
+        </div>
+        <ul>
+          <li>Name: { airplane.name }</li>
+          <li>Fuel: { airplane.fuel }</li>
+        </ul>
       </div>
     );
   }
