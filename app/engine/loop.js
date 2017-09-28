@@ -1,10 +1,10 @@
-import store from '../stores/store'
+import store from 'stores/store'
 
-import { createAirplane } from '../redux/actions/airplanes'
-import { launchAirplane, landAirplane } from '../redux/actions/airports'
-import { advanceTurn } from '../redux/actions/world'
+import { createAirplane } from 'redux/actions/airplanes'
+import { launchAirplane, landAirplane } from 'redux/actions/airports'
+import { advanceTurn } from 'redux/actions/world'
 
-import { getAirports, getRunwaysByAirportId } from '../redux/selectors/airports'
+import { getAirports, getRunwaysByAirportId } from 'redux/selectors/airports'
 
 export function init() {
   store.dispatch(createAirplane({

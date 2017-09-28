@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import EMOJI from 'engine/constants/emoji'
+import EMOJI from 'constants/emoji'
 
 export default class Airplane extends Component {
   //static propTypes = {

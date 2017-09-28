@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import EMOJI from 'engine/constants/emoji'
+import EMOJI from 'constants/emoji'
 
 import Runway from 'components/runway'
 
