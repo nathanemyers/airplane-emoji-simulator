@@ -8,12 +8,11 @@ export default class Airplane extends Component {
 
   render() {
     const { airplane } = this.props;
-    const plane_emoji = EMOJI.PLANE
 
     return (
       <div className="airplane">
         <div className="emoji">
-          { plane_emoji }
+          { EMOJI.PLANE }
         </div>
         <ul>
           <li>Name: { airplane.name }</li>

@@ -7,4 +7,5 @@ export default {
   CRASH: "💥",
   FIRE: "🔥",
   ONE_HUNDRED: "💯",
+  AIRPORT: "🌇"
 }

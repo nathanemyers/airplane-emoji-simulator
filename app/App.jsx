@@ -4,8 +4,10 @@ import {connect} from 'react-redux'
 import mainLoop, { init } from './engine/loop'
 
 import Airplane from './components/airplane'
+import Airport from './components/airport'
 
 import { getAirplanes } from './redux/selectors/airplanes'
+import { getAirports } from './redux/selectors/airports'
 import { getTurn } from './redux/selectors/world'
 
 init()
@@ -16,6 +18,7 @@ window.setInterval(mainLoop, 5 * 1000)
 @connect(
   ( state, ownProps ) => ({
     airplanes: getAirplanes(state),
+    airports: getAirports(state),
     turn: getTurn(state),
   }),
   dispatch => ({
@@ -31,10 +34,14 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { airplanes, turn } = this.props
+    const { airplanes, airports, turn } = this.props
 
     const rendered_airplanes = airplanes.map((airplane) => (
       <Airplane airplane={ airplane } />
+    ))
+
+    const rendered_airports = airports.map((airport) => (
+      <Airport airport={ airport } />
     ))
 
     return (
@@ -44,6 +51,8 @@ export default class App extends React.Component {
           <h3>Turn { turn }</h3>
         </div>
         { rendered_airplanes }
+        { rendered_airports }
+
       </div>
     );
   }
