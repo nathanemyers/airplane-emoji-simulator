@@ -1,17 +1,28 @@
 import React, { Component, PropTypes } from 'react'
+import {connect} from 'react-redux'
 import EMOJI from 'constants/emoji'
 
 import Runway from 'components/runway'
 
+import { getRunwaysByAirportId } from 'redux/selectors/runways'
+
+@connect(
+  ( state, ownProps ) => ({
+    runways: getRunwaysByAirportId(state, ownProps.airport.id),
+  }),
+  dispatch => ({
+  })
+)
 export default class Airport extends Component {
+
   //static propTypes = {
-    //team: PropTypes.object.isRequired,
+    //airport: PropTypes.object.isRequired,
   //}
 
   render() {
-    const { airport } = this.props;
+    const { airport, runways } = this.props;
 
-    const runways = airport.runways.map((runway) => (
+    const rendered_runways = runways.map((runway) => (
       <Runway runway={ runway } />
     ))
 
@@ -23,7 +34,7 @@ export default class Airport extends Component {
         <ul>
           <li>Name: { airport.name }</li>
         </ul>
-        { runways }
+        { rendered_runways }
       </div>
     );
   }

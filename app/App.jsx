@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-import mainLoop, { init } from './engine/loop'
+import mainLoop, { init } from 'engine/loop'
 
-import Airplane from './components/airplane'
-import Airport from './components/airport'
+import Airplane from 'components/airplane'
+import Airport from 'components/airport'
 
-import { getAirplanes } from './redux/selectors/airplanes'
-import { getAirports } from './redux/selectors/airports'
-import { getTurn } from './redux/selectors/world'
+import { getAirplanes } from 'redux/selectors/airplanes'
+import { getAirports } from 'redux/selectors/airports'
+import { getTurn } from 'redux/selectors/world'
 
 init()
 mainLoop()
@@ -40,9 +40,11 @@ export default class App extends React.Component {
       <Airplane airplane={ airplane } />
     ))
 
-    const rendered_airports = airports.map((airport) => (
-      <Airport airport={ airport } />
-    ))
+    const rendered_airports = airports.map((airport) => {
+      return (
+        <Airport airport={ airport } />
+      )
+    }) 
 
     return (
       <div>

@@ -1,5 +1,6 @@
 import { ADD_AIRPLANE } from 'redux/actions/airplanes'
 import { ADVANCE_TURN } from 'redux/actions/world'
+import { PLANE_STATUS } from 'constants/airplane'
 
 function tickAirplane(airplane) {
   if (airplane.status === PLANE_STATUS.FLIGHT ) {

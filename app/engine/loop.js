@@ -4,7 +4,8 @@ import { createAirplane } from 'redux/actions/airplanes'
 import { launchAirplane, landAirplane } from 'redux/actions/airports'
 import { advanceTurn } from 'redux/actions/world'
 
-import { getAirports, getRunwaysByAirportId } from 'redux/selectors/airports'
+import { getAirports } from 'redux/selectors/airports'
+import { getRunwaysByAirportId } from 'redux/selectors/runways'
 
 export function init() {
   store.dispatch(createAirplane({
