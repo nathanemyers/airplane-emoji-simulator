@@ -11,6 +11,7 @@ export function createAirplane(airplane) {
     type: ADD_AIRPLANE,
     airplane: {
       fuel: 100,
+      status: PLANE_STATUS.TAXI,
       ...airplane,
       id,
       turn_created

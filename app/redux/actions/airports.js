@@ -20,18 +20,11 @@ export function landAirplane(airplane_id, runway_id) {
   };
 }
 
-export const ADD_RUNWAY = "ADD_RUNWAY"
-export function addRunway(airport_id) {
-  return {
-    type: ADD_RUNWAY,
-    airport_id,
-  };
-}
-
 export const ADD_AIRPLANE_TO_TAXI = "ADD_AIRPLANE_TO_TAXI"
-export function addAirplaneToTaxi(airplane_id) {
+export function addAirplaneToTaxi(airplane_id, airport_id) {
   return {
     type: ADD_AIRPLANE_TO_TAXI,
     airplane_id,
+    airport_id,
   };
 }

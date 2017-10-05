@@ -17,6 +17,7 @@ export default class Airplane extends Component {
         <ul>
           <li>Name: { airplane.name }</li>
           <li>Fuel: { airplane.fuel }</li>
+          <li>Status: { airplane.status }</li>
         </ul>
       </div>
     );

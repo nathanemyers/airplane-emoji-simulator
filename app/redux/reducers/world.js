@@ -10,7 +10,6 @@ export default (state = initialWorldState, action) => {
     case ADVANCE_TURN:
       newState.turn = state.turn + 1
       return newState;
-
     default:
       return state;
   }
