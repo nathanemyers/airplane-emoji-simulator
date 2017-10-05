@@ -30,6 +30,16 @@ export default (state = initialAirportState, action) => {
       const airport = newState.airports[0]
       airport.taxi_queue.push(action.airplane.id)
       return newState;
+    case LAUNCH_AIRPLANE:
+      newState.airports = newState.airports.map(airport => {
+        if (airport.id === action.airport_id) {
+          _.remove(airport.taxi_queue, (airplane_id) => airplane_id === action.airplane_id )
+        }
+        return airport
+      })
+      return newState;
+    case LAND_AIRPLANE:
+      return newState;
     case ADVANCE_TURN:
       return newState;
     default:

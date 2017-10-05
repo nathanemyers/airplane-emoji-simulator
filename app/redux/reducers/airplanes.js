@@ -1,5 +1,7 @@
 import { ADD_AIRPLANE } from 'redux/actions/airplanes'
 import { ADVANCE_TURN } from 'redux/actions/world'
+import { LAUNCH_AIRPLANE, LAND_AIRPLANE } from 'redux/actions/airports'
+
 import { PLANE_STATUS } from 'constants/airplane'
 
 function tickAirplane(airplane) {
@@ -24,6 +26,16 @@ export default (state = initialAirplanesState, action) => {
       return newState;
     case ADVANCE_TURN:
       newState.airplanes = state.airplanes.map(airplane => tickAirplane(airplane))
+      return newState;
+    case LAUNCH_AIRPLANE:
+      newState.airplanes = state.airplanes.map(airplane => {
+        if (airplane.id === action.airplane_id) {
+          airplane.status = PLANE_STATUS.FLIGHT
+        }
+        return airplane
+      })
+      return newState;
+    case LAND_AIRPLANE:
       return newState;
     default:
       return state;

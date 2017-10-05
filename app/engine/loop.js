@@ -2,6 +2,7 @@ import store from 'stores/store'
 
 import { createAirplane } from 'redux/actions/airplanes'
 import { launchAirplane, landAirplane } from 'redux/actions/airports'
+import { addRunway } from 'redux/actions/runways'
 import { advanceTurn } from 'redux/actions/world'
 
 import { getAirports } from 'redux/selectors/airports'
@@ -23,6 +24,8 @@ export function init() {
   store.dispatch(createAirplane({
     name: 'katy'
   }))
+
+  store.dispatch(addRunway(0))
 }
 
 function is_busy(runway) {
