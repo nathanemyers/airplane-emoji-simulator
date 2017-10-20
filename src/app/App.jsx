@@ -37,7 +37,9 @@ export default class App extends React.Component {
     const { airplanes, airports, turn } = this.props
 
     const rendered_airplanes = airplanes.map((airplane) => (
-      <Airplane airplane={ airplane } />
+      <div className="airplane-container">
+        <Airplane airplane={ airplane } />
+      </div>
     ))
 
     const rendered_airports = airports.map((airport) => {
