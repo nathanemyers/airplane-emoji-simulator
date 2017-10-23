@@ -1,5 +1,3 @@
-import cuid from 'cuid'
-
 import { getTurn } from 'redux/selectors/world'
 import { getRunway } from 'redux/selectors/runways'
 

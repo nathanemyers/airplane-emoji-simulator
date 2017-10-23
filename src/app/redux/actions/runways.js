@@ -1,10 +1,12 @@
-import cuid from 'cuid'
+//import cuid from 'cuid'
+import uuid from 'uuid/v4'
 import { getTurn } from 'redux/selectors/world'
 import store from 'stores/store'
 
 export const ADD_RUNWAY = "ADD_RUNWAY"
 export function addRunway(airport_id) {
-  const id = cuid() 
+  //const id = cuid() 
+  const id = uuid() 
   const turn_created = getTurn(store.getState()) 
   return {
     type: ADD_RUNWAY,
