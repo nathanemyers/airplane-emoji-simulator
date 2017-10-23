@@ -9,21 +9,44 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
-  entry: './src/app/index.js',
+  entry: {
+    app: './src/app/index.js',
+    style: './src/scss/index.scss'
+  },
   output: {
     path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    filename: '[name].js'
   },
   resolve: {
     modules: ['node_modules', 'src/app', 'src/scss'],
     extensions: ['.js', '.jsx', '.scss', '.css']
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/  },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/  },
-      { test:    /\.scss?$/, loader: ExtractTextPlugin.extract('css!postcss!sass') },
+    rules: [
+      { 
+        test: /\.js$/, 
+        use: [{loader: 'babel-loader'}],
+        exclude: '/node_modules/',
+      },
+      { 
+        test: /\.jsx$/, 
+        use: [{loader: 'babel-loader'}],
+        exclude: '/node_modules/',
+      },
+      { 
+        test: /\.scss$/, 
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {loader: 'css-loader'},
+            {loader: 'sass-loader'},
+          ],
+        })
+      },
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [
+    HtmlWebpackPluginConfig,
+    new ExtractTextPlugin('styles.css')
+  ]
 }
