@@ -1,3 +1,44 @@
-.airplane-container {
-  background-color: #bada55;
+.airplane-card,
+.airport-card {
+  border: 1px solid gray;
+  border-radius: .25em;
+}
+
+.airplane-container, 
+.airport-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-bottom: 2em;
+}
+
+.emoji {
+  font-size: 3em;
+  text-align: center;
+}
+
+
+.airplane {
+  .name {
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  ul.info {
+    padding-left: 0;
+
+    li {
+      margin: 10px;
+      list-style: none;
+
+      span {
+        padding: .25em;
+        background-color: #EEE;
+        border: 1px solid #AAA;
+        border-radius: .25em;
+      }
+    }
+
+  }
 }

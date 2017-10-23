@@ -14,10 +14,22 @@ export default class Airplane extends Component {
         <div className="emoji">
           { EMOJI.PLANE }
         </div>
+        <div className="name">
+          { airplane.name }
+        </div>
+        <ul className="info">
+          <li>
+            <span>
+              { EMOJI.BARREL }: { airplane.fuel }
+            </span>
+          </li>
+          <li>
+            <span>
+              Status: { airplane.status }
+            </span>
+          </li>
+        </ul>
         <ul>
-          <li>Name: { airplane.name }</li>
-          <li>Fuel: { airplane.fuel }</li>
-          <li>Status: { airplane.status }</li>
         </ul>
       </div>
     );

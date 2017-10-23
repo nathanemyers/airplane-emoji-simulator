@@ -37,14 +37,16 @@ export default class App extends React.Component {
     const { airplanes, airports, turn } = this.props
 
     const rendered_airplanes = airplanes.map((airplane) => (
-      <div className="airplane-container">
+      <div className="airplane-card">
         <Airplane airplane={ airplane } />
       </div>
     ))
 
     const rendered_airports = airports.map((airport) => {
       return (
+      <div className="airport-card">
         <Airport airport={ airport } />
+      </div>
       )
     }) 
 
@@ -54,8 +56,12 @@ export default class App extends React.Component {
           <h1>✈️</h1>
           <h3>Turn { turn }</h3>
         </div>
-        { rendered_airplanes }
-        { rendered_airports }
+        <div className="airplane-container">
+          { rendered_airplanes }
+        </div>
+        <div className="airport-container">
+          { rendered_airports }
+        </div>
 
       </div>
     );
