@@ -13,7 +13,7 @@ import { getTurn } from 'redux/selectors/world'
 init()
 mainLoop()
 
-window.setInterval(mainLoop, 5 * 1000)
+window.setInterval(mainLoop, 2 * 1000)
 
 @connect(
   ( state, ownProps ) => ({

@@ -42,3 +42,13 @@
 
   }
 }
+
+.cooldown {
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
+.cooldown-pip {
+  background-color: blue;
+}

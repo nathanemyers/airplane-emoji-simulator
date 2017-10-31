@@ -31,9 +31,9 @@ export default class Airport extends Component {
         <div className="emoji">
           { EMOJI.AIRPORT }
         </div>
-        <ul>
-          <li>Name: { airport.name }</li>
-        </ul>
+        <div className="name">
+          { airport.name }
+        </div>
         { rendered_runways }
       </div>
     );
