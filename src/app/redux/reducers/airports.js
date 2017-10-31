@@ -13,7 +13,7 @@ const initialAirportState = {
   airports: [
     {
       id: 0,
-      name: "primary",
+      name: "Chicago",
       taxi_queue: [],
     }
   ],
