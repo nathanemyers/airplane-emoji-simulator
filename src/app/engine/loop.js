@@ -5,7 +5,7 @@ import { launchAirplane, landAirplane, createAirport } from 'redux/actions/airpo
 import { addRunway } from 'redux/actions/runways'
 import { advanceTurn } from 'redux/actions/world'
 
-import { getAirports, getAirportByName } from 'redux/selectors/airports'
+import { getAirports, getAirportByName, getRandomDestination } from 'redux/selectors/airports'
 import { getRunwaysByAirportId } from 'redux/selectors/runways'
 
 export function init() {
@@ -28,11 +28,10 @@ export function init() {
 
   // This is a kind of jank way to init airports and runways.
   // The store is prepopulated with the airports, with fixed ids
-  // Chicago: 0
-  // Denver: 1
   // Ideally I'd use redux-thunk to chain together the airport creation and runway init
   store.dispatch(addRunway(0))
   store.dispatch(addRunway(1))
+  store.dispatch(addRunway(2))
 }
 
 function is_busy(runway) {
@@ -47,7 +46,8 @@ export default function mainLoop() {
     runways.forEach((runway) => {
 
       if (airport.taxi_queue.length > 0 && !is_busy(runway)) {
-        store.dispatch(launchAirplane(airport.taxi_queue[0], runway.id))
+        const destination = getRandomDestination(state, airport)
+        store.dispatch(launchAirplane(airport.taxi_queue[0], runway.id, destination.id))
       }
 
     })

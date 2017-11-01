@@ -28,6 +28,21 @@ export default class Airplane extends Component {
               Status: { airplane.status }
             </span>
           </li>
+          <li>
+            <span>
+              Outbound: { airplane.outbound_airport_id }
+            </span>
+          </li>
+          <li>
+            <span>
+              Inbound: { airplane.inbound_airport_id }
+            </span>
+          </li>
+          <li>
+            <span>
+              Travel Remaining: { airplane.travel_remaining }
+            </span>
+          </li>
         </ul>
         <ul>
         </ul>

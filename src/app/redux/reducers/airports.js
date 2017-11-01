@@ -29,6 +29,10 @@ const initialAirportState = {
       id: 1,
       name: 'Denver',
     }),
+    buildAirport({
+      id: 2,
+      name: 'Toronto',
+    }),
   ],
 }
 

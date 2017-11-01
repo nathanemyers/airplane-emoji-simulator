@@ -7,6 +7,7 @@ import { PLANE_STATUS } from 'constants/airplane'
 function tickAirplane(airplane) {
   if (airplane.status === PLANE_STATUS.FLIGHT ) {
     airplane.fuel--
+    airplane.travel_remaining--
   }
   if (airplane.fuel < 0) {
     airplane.status = PLANE_STATUS.CRASH
@@ -31,6 +32,9 @@ export default (state = initialAirplanesState, action) => {
       newState.airplanes = state.airplanes.map(airplane => {
         if (airplane.id === action.airplane_id) {
           airplane.status = PLANE_STATUS.FLIGHT
+          airplane.outbound_airport_id = action.airport_id
+          airplane.inbound_airport_id = action.destination_airport_id
+          airplane.travel_remaining = action.distance
         }
         return airplane
       })

@@ -1,6 +1,7 @@
 import uuid from 'uuid/v4'
 import { getTurn } from 'redux/selectors/world'
 import { getRunway } from 'redux/selectors/runways'
+import { getDistance } from 'redux/selectors/airports'
 
 import store from 'stores/store'
 
@@ -19,14 +20,17 @@ export function createAirport(airport) {
 }
 
 export const LAUNCH_AIRPLANE = "LAUNCH_AIRPLANE"
-export function launchAirplane(airplane_id, runway_id) {
+export function launchAirplane(airplane_id, runway_id, destination_airport_id) {
   const state = store.getState()
   const airport_id = getRunway(state, runway_id).airport_id
+  const distance = getDistance(state, airport_id, destination_airport_id)
   return {
     type: LAUNCH_AIRPLANE,
     airplane_id,
     airport_id,
     runway_id,
+    destination_airport_id,
+    distance,
   };
 }
 
