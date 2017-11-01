@@ -30,12 +30,12 @@ export default class Airplane extends Component {
           </li>
           <li>
             <span>
-              Outbound: { airplane.outbound_airport_id }
+              Origin: { airplane.outbound_airport_name }
             </span>
           </li>
           <li>
             <span>
-              Inbound: { airplane.inbound_airport_id }
+              Destination: { airplane.inbound_airport_name }
             </span>
           </li>
           <li>

@@ -33,7 +33,9 @@ export default (state = initialAirplanesState, action) => {
         if (airplane.id === action.airplane_id) {
           airplane.status = PLANE_STATUS.FLIGHT
           airplane.outbound_airport_id = action.airport_id
+          airplane.outbound_airport_name = action.airport_name
           airplane.inbound_airport_id = action.destination_airport_id
+          airplane.inbound_airport_name = action.destination_airport_name
           airplane.travel_remaining = action.distance
         }
         return airplane
