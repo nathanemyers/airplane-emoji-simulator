@@ -1,7 +1,22 @@
+import uuid from 'uuid/v4'
 import { getTurn } from 'redux/selectors/world'
 import { getRunway } from 'redux/selectors/runways'
 
 import store from 'stores/store'
+
+export const CREATE_AIRPORT = "CREATE_AIRPORT"
+export function createAirport(airport) {
+  return (dispatch) => {
+    const id = uuid() 
+    return dispatch( {
+      type: CREATE_AIRPORT,
+      airport: {
+        ...airport,
+        id,
+      },
+    });
+  }
+}
 
 export const LAUNCH_AIRPLANE = "LAUNCH_AIRPLANE"
 export function launchAirplane(airplane_id, runway_id) {

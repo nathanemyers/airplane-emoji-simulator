@@ -25,6 +25,7 @@ export default (state = initialRunwayState, action) => {
           runway.cooldown = 4
           return runway
         }
+        return runway
       })
       return newState;
     case LAND_AIRPLANE:
@@ -33,6 +34,7 @@ export default (state = initialRunwayState, action) => {
           runway.cooldown = 2
           return runway
         }
+        return runway
       })
       return newState;
     case ADVANCE_TURN:

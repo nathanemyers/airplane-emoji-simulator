@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import { 
+  CREATE_AIRPORT, 
   LAUNCH_AIRPLANE, 
   LAND_AIRPLANE, 
   ADD_AIRPLANE_TO_TAXI,
@@ -9,22 +10,37 @@ import { ADVANCE_TURN } from 'redux/actions/world'
 
 import { getAirport, getRunway } from 'redux/selectors/airports'
 
+const buildAirport = (airport) => {
+  return {
+    starting_fuel: 50,
+    distance: 35,
+    ...airport,
+    taxi_queue: [],
+  }
+}
+
 const initialAirportState = {
   airports: [
-    {
+    buildAirport({
       id: 0,
-      name: "Chicago",
-      taxi_queue: [],
-    }
+      name: 'Chicago',
+    }),
+    buildAirport({
+      id: 1,
+      name: 'Denver',
+    }),
   ],
 }
+
 
 export default (state = initialAirportState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
-    case ADD_AIRPLANE_TO_TAXI:
-      newState.taxi_queue.push(action.airplane_id)
+    case CREATE_AIRPORT:
+      newState.airports.push(buildAirport(action.airport))
       return newState;
+    case ADD_AIRPLANE_TO_TAXI:
+      return state
     case ADD_AIRPLANE:
       const airport = newState.airports[0]
       airport.taxi_queue.push(action.airplane.id)
