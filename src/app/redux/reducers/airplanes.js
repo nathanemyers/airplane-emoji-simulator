@@ -40,6 +40,13 @@ export default (state = initialAirplanesState, action) => {
       })
       return newState;
     case LAND_AIRPLANE:
+      newState.airplanes = state.airplanes.map(airplane => {
+        if (airplane.id === action.airplane_id) {
+          airplane.fuel = airplane.fuel + 20
+          airplane.status = PLANE_STATUS.TAXI
+        }
+        return airplane
+      })
       return newState;
     default:
       return state;

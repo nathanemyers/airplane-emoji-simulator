@@ -13,9 +13,10 @@ import { getAirport, getRunway } from 'redux/selectors/airports'
 const buildAirport = (airport) => {
   return {
     starting_fuel: 50,
-    distance: 35,
+    distance: 5,
     ...airport,
     taxi_queue: [],
+    landing_hopper: [],
   }
 }
 
@@ -54,10 +55,20 @@ export default (state = initialAirportState, action) => {
         if (airport.id === action.airport_id) {
           _.remove(airport.taxi_queue, (airplane_id) => airplane_id === action.airplane_id )
         }
+        if (airport.id === action.destination_airport_id) {
+          airport.landing_hopper.push(action.airplane_id)
+        }
         return airport
       })
       return newState;
     case LAND_AIRPLANE:
+      newState.airports = newState.airports.map(airport => {
+        if (airport.id === action.airport_id) {
+          airport.taxi_queue.push(action.airplane_id)
+          _.remove(airport.landing_hopper, (airplane_id) => airplane_id === action.airplane_id )
+        }
+        return airport
+      })
       return newState;
     case ADVANCE_TURN:
       return newState;

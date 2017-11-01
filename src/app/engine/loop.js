@@ -6,6 +6,7 @@ import { addRunway } from 'redux/actions/runways'
 import { advanceTurn } from 'redux/actions/world'
 
 import { getAirports, getAirportByName, getRandomDestination } from 'redux/selectors/airports'
+import { getAirplane } from 'redux/selectors/airplanes'
 import { getRunwaysByAirportId } from 'redux/selectors/runways'
 
 export function init() {
@@ -38,6 +39,20 @@ function is_busy(runway) {
   return runway.cooldown > 0
 }
 
+function is_plane_ready_to_land(state, airport) {
+  return !!airport.landing_hopper.find((airplane_id) => {
+    const airplane = getAirplane(state, airplane_id)
+    return (airplane.travel_remaining <= 0)
+  })
+}
+
+function select_plane_to_land(state, airport) {
+  return airport.landing_hopper.find((airplane_id) => {
+    const airplane = getAirplane(state, airplane_id)
+    return (airplane.travel_remaining <= 0)
+  })
+}
+
 export default function mainLoop() {
   const state = store.getState()
   const airports = getAirports(state)
@@ -48,6 +63,13 @@ export default function mainLoop() {
       if (airport.taxi_queue.length > 0 && !is_busy(runway)) {
         const destination = getRandomDestination(state, airport)
         store.dispatch(launchAirplane(airport.taxi_queue[0], runway.id, destination.id))
+        return
+      }
+
+      if (is_plane_ready_to_land(state, airport)) {
+        const airplane_id = select_plane_to_land(state, airport)
+        store.dispatch(landAirplane(airplane_id, runway.id))
+        return
       }
 
     })
